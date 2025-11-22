@@ -3,3 +3,9 @@ b545fe2 clarifying extracted method names in README.md
 a0124c9 fixing starter file
 c8d9d38 adding starter files
 cbe4517 first commit
+08e5df4 (HEAD -> main, origin/main, origin/HEAD) Task 1.2
+aa4d0ef Task 1.1
+b545fe2 clarifying extracted method names in README.md
+a0124c9 fixing starter file
+c8d9d38 adding starter files
+cbe4517 first commit
