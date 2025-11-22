@@ -35,11 +35,7 @@ public class StatementPrinter {
 
             // add volume credits
             volumeCredits += Math.max(p.getAudience() - Constants.BASE_VOLUME_CREDIT_THRESHOLD, 0);
-            // add extra credit for every five comedy attendees
-            if ("comedy".equals(getPlay(p).getType())) {
-                volumeCredits += p.getAudience()
-                        / Constants.COMEDY_EXTRA_VOLUME_FACTOR;
-            }
+            volumeCredits += getVolumeCredits(p);
 
             // print line for this order
             result.append(String.format("  %s: %s (%s seats)%n", getPlay(p).getName(), frmt.format(rslt
@@ -52,6 +48,21 @@ public class StatementPrinter {
         return result.toString();
     }
 
+    private int getVolumeCredits(Performance performance) {
+        // add extra credit for every five comedy attendees
+        int result = 0;
+        if ("comedy".equals(getPlay(performance).getType())) {
+            result += performance.getAudience()
+                    / Constants.COMEDY_EXTRA_VOLUME_FACTOR;
+        }
+        return result;
+    }
+
+    /**
+     * Getter to retrieve a play from a performance.
+     * @param performance performance of a play.
+     * @return the play.
+     */
     public Play getPlay(Performance performance) {
         return plays.get(performance.getPlayID());
     }
